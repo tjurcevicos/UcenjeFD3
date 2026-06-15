@@ -1,0 +1,86 @@
+     {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        background: linear-gradient(to bottom, #c8f7c5, #f0fff0);
+        color: #2d572c;
+    }
+
+    header {
+        background-color: #7ed957;
+        color: white;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    header h1 {
+        font-size: 3rem;
+    }
+
+    nav {
+        background-color: #5cb85c;
+        padding: 15px;
+        text-align: center;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-weight: bold;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+
+    .hero {
+        text-align: center;
+        padding: 60px 20px;
+    }
+
+    .hero h2 {
+        font-size: 2.2rem;
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        max-width: 700px;
+        margin: auto;
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 40px 20px;
+    }
+
+    .card {
+        background: white;
+        width: 280px;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        text-align: center;
+    }
+
+    .card h3 {
+        margin-bottom: 10px;
+        color: #4a8f3b;
+    }
+
+    footer {
+        background-color: #5cb85c;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        margin-top: 30px;
+    }

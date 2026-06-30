@@ -1,0 +1,304 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#1d1d1d;
+    color:white;
+}
+
+header{
+    width:100%;
+    background:#222;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:100;
+}
+
+.logo h2{
+    color:#d7ff00;
+    font-size:32px;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+}
+
+nav ul li{
+    margin-left:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-size:18px;
+}
+
+nav ul li a:hover{
+    color:#d7ff00;
+}
+
+.hero{
+    height:100vh;
+    background-image:url("vjezba.jpg");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.overlay{
+    background:rgba(0,0,0,0.45);
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.hero h1{
+    font-size:72px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:22px;
+    margin-bottom:40px;
+}
+
+.btn{
+    display:inline-block;
+    padding:18px 40px;
+    background:#d7ff00;
+    color:black;
+    text-decoration:none;
+    border-radius:40px;
+    font-weight:bold;
+}
+
+.usluge{
+    padding:100px 80px;
+    text-align:center;
+}
+
+.usluge h2{
+    color:#d7ff00;
+    font-size:52px;
+}
+
+.linija{
+    width:70px;
+    height:4px;
+    background:white;
+    margin:20px auto 60px;
+}
+
+.kartice{
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.kartica{
+    background:#2b2b2b;
+    padding:40px 30px;
+    border-radius:10px;
+    flex:1;
+}
+
+.kartica h3{
+    margin-bottom:20px;
+    font-size:28px;
+}
+
+.kartica p{
+    line-height:1.8;
+}
+
+.cjenik{
+    padding:100px 80px;
+    text-align:center;
+}
+
+.cjenik h2{
+    color:#d7ff00;
+    font-size:52px;
+}
+
+.cjenik p{
+    margin-bottom:20px;
+}
+
+table{
+    width:70%;
+    margin:auto;
+    border-collapse:collapse;
+}
+
+th{
+    background:#d7ff00;
+    color:black;
+    padding:20px;
+    font-size:20px;
+}
+
+td{
+    padding:20px;
+    background:#2b2b2b;
+    border:1px solid #444;
+}
+
+.video{
+    padding:100px 0;
+    text-align:center;
+}
+
+.video iframe{
+    width:900px;
+    max-width:90%;
+    height:500px;
+    border:none;
+}
+
+.kontakt{
+    padding:100px 80px;
+}
+
+.kontakt h2{
+    text-align:center;
+    color:#d7ff00;
+    font-size:52px;
+}
+
+.kontakt-sadrzaj{
+    display:flex;
+    justify-content:space-between;
+    gap:80px;
+    margin-top:60px;
+}
+
+.lijevo{
+    width:40%;
+}
+
+.lijevo h3{
+    margin-bottom:25px;
+    font-size:28px;
+}
+
+.lijevo p{
+    margin-bottom:12px;
+    line-height:1.8;
+}
+
+.desno{
+    width:60%;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+}
+
+label{
+    margin-bottom:8px;
+    margin-top:15px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:15px;
+    background:#2b2b2b;
+    border:1px solid #444;
+    color:white;
+    border-radius:5px;
+    font-size:16px;
+}
+
+textarea{
+    resize:none;
+}
+
+button{
+    margin-top:25px;
+    padding:18px;
+    background:#d7ff00;
+    color:black;
+    border:none;
+    border-radius:40px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#c3eb00;
+}
+
+footer{
+    background:#111;
+    text-align:center;
+    padding:40px 20px;
+    border-top:2px solid #d7ff00;
+}
+
+footer p{
+    margin:10px 0;
+    color:#bbb;
+}
+
+@media(max-width:900px){
+
+    header{
+        flex-direction:column;
+        padding:20px;
+    }
+
+    nav ul{
+        margin-top:20px;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .hero p{
+        font-size:18px;
+    }
+
+    .kartice{
+        flex-direction:column;
+    }
+
+    table{
+        width:100%;
+    }
+
+    .kontakt-sadrzaj{
+        flex-direction:column;
+    }
+
+    .lijevo,
+    .desno{
+        width:100%;
+    }
+
+    .video iframe{
+        height:300px;
+    }
+
+}

@@ -1,0 +1,173 @@
+body{
+    background-color: #f7e6d3;
+    font-family: sans-serif;
+    margin: 0;
+}
+
+
+
+
+header{
+
+    text-align: center;
+    padding: 30px;
+    margin-bottom: 20px;
+
+}
+
+
+
+
+header p{
+
+    font-style: italic;
+    color: #555;
+
+}
+
+
+
+
+
+h1{
+    color: darkred;
+    font-size: 48px;
+    margin-bottom: 5px;
+
+}
+
+
+
+nav{
+
+    background-color: darkred;
+    text-align: center;
+    padding: 15px;
+
+}
+
+
+nav a{
+
+    color: white;
+    text-decoration: none;
+    margin: 20px;
+    font-weight: bold;
+
+}
+
+
+iframe{
+
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 10px;
+
+    
+}
+
+
+
+
+section{
+
+    background: white;
+    padding: 25px;
+    margin: 30px;
+    border-radius: 10px;
+
+}
+
+
+table{
+
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+
+th{
+
+    background: darkred;
+    color: white;
+    padding: 15px;
+
+}
+
+
+td{
+
+    padding: 15px;
+    border: 1px solid lightgray; 
+}
+
+
+tr:nth-child(even){
+    
+    background-color: #f8f8f8;
+
+}
+
+
+
+
+label{
+
+    font-weight: bold;
+
+}
+
+
+button:hover{
+
+    background-color: brown;
+
+}
+
+
+input,textarea{
+
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+
+}
+
+
+button{
+
+    background: darkred;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    
+
+}
+
+
+
+blockquote{
+
+    border-left: 5px solid darkred;
+    padding-left: 15px;
+    font-style: italic;
+    color: #555;
+
+
+}
+
+
+
+footer{
+
+    text-align: center;
+    padding: 30px;
+    color: gray;
+    border-top: 1px solid lightgray;
+
+}
+
+

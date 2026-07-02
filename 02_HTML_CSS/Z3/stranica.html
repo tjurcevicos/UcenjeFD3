@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sigurna Prijava</title>
+    <link rel="stylesheet" href="style.css">
+
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="kontejner">
+
+    <div class="lokot">
+        <i class="fa-solid fa-lock"></i>
+    </div>
+
+    <div class="login-prozor">
+
+        <fieldset>
+            <legend>Sigurna Prijava</legend>
+
+            <label>Korisničko ime</label>
+            <input type="text" placeholder="admin">
+
+            <label>Lozinka</label>
+            <input type="password" placeholder="******">
+
+            <div class="remember">
+                <input type="checkbox" id="remember">
+                <label for="remember">Zapamti uređaj</label>
+            </div>
+
+            <button>Prijavi se</button>
+
+        </fieldset>
+
+    </div>
+
+    <div class="aktivnosti">
+
+        <h2>Nedavne aktivnosti prijave</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>IP ADRESA</th>
+                    <th>VRIJEME</th>
+                    <th>STATUS</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>192.168.1.15</td>
+                    <td>12:45</td>
+                    <td class="uspjeh">Uspjeh</td>
+                </tr>
+
+                <tr>
+                    <td>10.0.0.52</td>
+                    <td>Jučer</td>
+                    <td class="greška">Greška</td>
+                </tr>
+
+                <tr>
+                    <td>88.102.x.x</td>
+                    <td>01.12.</td>
+                    <td></td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <div class="footer">
+            Prikaz zadnja 3 pokušaja
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

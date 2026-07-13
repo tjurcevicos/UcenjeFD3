@@ -1,0 +1,181 @@
+/* Općenito */
+
+body{
+    background:#f4f4f4;
+    font-family: Arial, Helvetica, sans-serif;
+    margin:0;
+    color:#d3115b;
+}
+
+
+/* Hero sekcija */
+
+.hero{
+    background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+    url("slike/hero.jpg");
+    background-size:cover;
+    background-position:center;
+    color:white;
+    padding:120px 20px;
+}
+
+.hero.small{
+    padding:70px 20px;
+}
+
+.hero h1{
+    font-size:3rem;
+    font-weight:bold;
+}
+
+.hero p{
+    font-size:1.2rem;
+}
+
+
+/* Gornji dio navigacija */
+
+.top-bar{
+    background:#0e9c9c;
+}
+
+.top-bar,
+.top-bar ul{
+    background:#0bacdc;
+}
+
+.top-bar a{
+    color:white;
+}
+
+.menu-text{
+    color:white;
+    font-weight:bold;
+}
+
+.title-bar{
+    background:#0d47a1;
+}
+
+
+/* Poziv */
+
+.callout{
+    margin-top:30px;
+    border-radius:10px;
+}
+
+
+/* Kartice */
+
+.card{
+    margin-top:30px;
+    border-radius:10px;
+    overflow:hidden;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card-divider{
+    background:#0b88dc;
+    color:white;
+    font-weight:bold;
+}
+
+.card-section{
+    text-align:center;
+}
+
+.card-section i{
+    color:#0bacdc;
+    margin:20px 0;
+}
+
+
+/* Slide */
+
+.orbit{
+    margin:40px 0;
+}
+
+.orbit img{
+    width:100%;
+    height:500px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+
+/* Accordion */
+
+.accordion{
+    margin-top:30px;
+}
+
+.accordion-title{
+    font-weight:bold;
+}
+
+
+/* Forma */
+
+form{
+    margin-top:30px;
+}
+
+input,
+textarea{
+    border-radius:6px;
+}
+
+fieldset{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+
+/* Gumbi */
+
+.button{
+    border-radius:8px;
+}
+
+
+/* Footer */
+
+footer{
+    background:#0bacdc;
+    color:white;
+    text-align:center;
+    margin-top:50px;
+    padding:20px;
+}
+
+
+/* Razmak između sekcija */
+
+section{
+    padding:40px 0;
+}
+
+
+/* Mobitel */
+
+@media screen and (max-width:640px){
+
+.hero{
+    padding:60px 15px;
+}
+
+.hero h1{
+    font-size:2rem;
+}
+
+.orbit img{
+    height:250px;
+}
+
+}

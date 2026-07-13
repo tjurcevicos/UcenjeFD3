@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt | FPV Akademija</title>
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Gornji dio, navigacija -->
+
+    <div class="title-bar" data-responsive-toggle="glavni-menu" data-hide-for="medium">
+        <button class="menu-icon" type="button" data-toggle></button>
+        <div class="title-bar-title">FPV Akademija</div>
+    </div>
+
+    <div class="top-bar" id="glavni-menu">
+
+        <div class="top-bar-left">
+
+            <ul class="dropdown menu" data-dropdown-menu>
+
+                <li class="menu-text">FPV Akademija</li>
+
+                <li><a href="index.html">Početna</a></li>
+
+                <li><a href="program.html">Program</a></li>
+
+                <li><a href="kontakt.html">Kontakt</a></li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <section class="hero small text-center">
+
+        <div class="grid-container">
+
+            <h1>Prijava na FPV Akademiju</h1>
+
+            <p>Ispuni obrazac i rezerviraj svoje mjesto.</p>
+
+        </div>
+
+    </section>
+
+    <div class="grid-container">
+
+        <div class="callout warning">
+
+            <h4>Broj mjesta je ograničen!</h4>
+
+            <p>Prijave se zaprimaju do popunjavanja grupe.</p>
+
+        </div>
+
+        <form>
+
+            <label>Ime i prezime
+                <input type="text" placeholder="Unesite ime i prezime">
+            </label>
+
+            <label>E-mail
+                <input type="email" placeholder="upisi@fpvakademija.com">
+            </label>
+
+            <label>Broj telefona
+                <input type="tel" placeholder="091/111-1111">
+            </label>
+
+            <label>Dob
+                <input type="number" placeholder="18+">
+            </label>
+
+            <label>Zašto želiš upisati FPV Akademiju?
+                <textarea rows="5"></textarea>
+            </label>
+
+            <fieldset>
+
+                <legend>Razina iskustva</legend>
+
+                <input id="pocetnik" type="radio" name="iskustvo">
+                <label for="pocetnik">Početnik</label>
+
+                <input id="srednji" type="radio" name="iskustvo">
+                <label for="srednji">Imam malo iskustva</label>
+
+                <input id="napredni" type="radio" name="iskustvo">
+                <label for="napredni">Napredni korisnik</label>
+
+            </fieldset>
+
+            <input id="uvjeti" type="checkbox">
+
+            <label for="uvjeti">
+                Prihvaćam uvjete korištenja i obradu podataka.
+            </label>
+
+            <br><br>
+
+            <button class="button success large">
+                Pošalji prijavu
+            </button>
+
+            <button type="reset" class="button alert large">
+                Obriši
+            </button>
+
+        </form>
+
+    </div>
+
+    <footer>
+
+        <div class="grid-container text-center">
+
+            <p>© 2026 FPV Akademija by: Tomislav Jurčević</p>
+
+        </div>
+
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js"></script>
+
+    <script>
+        $(document).foundation();
+    </script>
+
+</body>
+
+</html>

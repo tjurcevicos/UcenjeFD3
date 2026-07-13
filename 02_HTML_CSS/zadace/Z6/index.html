@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FPV Akademija</title>
+
+    <!-- Foundation CSS -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css">
+
+    <!-- Font -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Moj CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Gornji dio, navigacija -->
+    <div class="title-bar" data-responsive-toggle="glavni-menu" data-hide-for="medium">
+        <button class="menu-icon" type="button" data-toggle></button>
+        <div class="title-bar-title">FPV Akademija</div>
+    </div>
+
+    <div class="top-bar" id="glavni-menu">
+        <div class="top-bar-left">
+            <ul class="dropdown menu" data-dropdown-menu>
+                <li class="menu-text">FPV Akademija</li>
+                <li><a href="index.html">Početna</a></li>
+                <li><a href="program.html">Program</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero, udarna -->
+    <section class="hero text-center">
+        <div class="grid-container">
+            <h1>FPV Akademija</h1>
+            <p>Nauči upravljati FPV dronovima i razvij tehničke vještine budućnosti.</p>
+
+            <a href="kontakt.html" class="button large success">
+                Prijavi se
+            </a>
+        </div>
+    </section>
+
+    <!-- Poziv na upise -->
+    <div class="grid-container">
+
+        <div class="callout primary text-center">
+            <h4>Prijave su u tijeku!</h4>
+            <p>Upisi za novu generaciju polaznika otvoreni su do kraja mjeseca.</p>
+        </div>
+
+    </div>
+
+    <!-- Slider tri fotografije -->
+    <div class="grid-container">
+
+        <div class="orbit" role="region" data-orbit>
+
+            <ul class="orbit-container">
+
+                <li class="is-active orbit-slide">
+                    <img src="slike/dron1.jpg" alt="FPV dron">
+                </li>
+
+                <li class="orbit-slide">
+                    <img src="slike/dron2.jpg" alt="Simulator">
+                </li>
+
+                <li class="orbit-slide">
+                    <img src="slike/dron3.jpg" alt="Natjecanje">
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- O programu -->
+
+    <section class="grid-container">
+
+        <h2 class="text-center">O programu</h2>
+
+        <p class="text-center">
+            FPV Akademija namijenjena je svima koji žele naučiti upravljati
+            FPV dronovima, upoznati elektroniku, simulatore letenja te razviti
+            STEM vještine kroz praktičan rad.
+        </p>
+
+    </section>
+
+    <!-- Tri kartice dolje -->
+
+    <section class="grid-container">
+
+        <div class="grid-x grid-margin-x">
+
+            <div class="cell medium-4">
+
+                <div class="card">
+
+                    <div class="card-divider">
+                        Tehničke vještine
+                    </div>
+
+                    <div class="card-section">
+
+                        <i class="fa-solid fa-screwdriver-wrench fa-3x"></i>
+
+                        <p>
+                            Upoznaj elektroniku, sastavljanje i održavanje dronova.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="cell medium-4">
+
+                <div class="card">
+
+                    <div class="card-divider">
+                        Kognitivne sposobnosti
+                    </div>
+
+                    <div class="card-section">
+
+                        <i class="fa-solid fa-brain fa-3x"></i>
+
+                        <p>
+                            Razvij koncentraciju, koordinaciju i brzo donošenje odluka.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="cell medium-4">
+
+                <div class="card">
+
+                    <div class="card-divider">
+                        STEM priprema
+                    </div>
+
+                    <div class="card-section">
+
+                        <i class="fa-solid fa-graduation-cap fa-3x"></i>
+
+                        <p>
+                            Idealna priprema za buduće zanimanje u području tehnologije.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Dno stranice -->
+
+    <footer>
+
+        <div class="grid-container text-center">
+
+            <p>
+                © 2026 FPV Akademija by: Tomislav Jurčević
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Foundation JS -->
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js"></script>
+
+    <script>
+        $(document).foundation();
+    </script>
+
+</body>
+
+</html>

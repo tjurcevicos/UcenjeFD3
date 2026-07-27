@@ -75,20 +75,29 @@ document.getElementById('zad02').addEventListener('click', () => {
 ================================================= */
 console.log("ZADATAK 3 — Zamjena prva dva elementa")
 
+
+
 document.getElementById('zad03').addEventListener('click', () => {
+
+
+
 
    const a = document.getElementById('inA').value;
    const b = document.getElementById('inB').value;
 
+
    const niz = [a, b, 3]
+
 
    console.log(niz)
    const manta = niz[0]
    niz[0] = niz[1]
    niz[1] = manta
 
+
    console.log(niz)
-   
+
+
 
 })
 

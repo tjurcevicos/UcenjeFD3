@@ -112,7 +112,7 @@ document.getElementById("izvedi").addEventListener("click", () => {
 
       let palindrom = true
 
-      for(let i = 0; p.length / 2; i++){
+      for(let i = 0; i<p.length / 2; i++){
         if(p[i] !== p[p.length - 1 - i ]){
           palindrom = false
           break

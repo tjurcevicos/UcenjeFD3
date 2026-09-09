@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edunova - Frontend Developer Polaznici</title>
+    <link rel="stylesheet" href="css/styleGemini.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <h1>Edunova Polaznici</h1>
+            <p class="subtitle">Smjer: Frontend Developer</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Sekcija: Kartični pregled -->
+        <section class="section">
+            <h2 class="section-title">Polaznici</h2>
+            <div id="cards-container" class="cards-grid"></div>
+        </section>
+    </main>
+
+    <!-- Lightbox Modal Galerija (inicijalno skrivena) -->
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Zatvori">&times;</button>
+        <button class="lightbox-btn prev" id="lightbox-prev" aria-label="Prethodna slika">&#10094;</button>
+        
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+        
+        <button class="lightbox-btn next" id="lightbox-next" aria-label="Sljedeća slika">&#10095;</button>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Edunova - Škola informatike</p>
+        </div>
+    </footer>
+
+    <script src="js/appGemini.js"></script>
+</body>
+</html>

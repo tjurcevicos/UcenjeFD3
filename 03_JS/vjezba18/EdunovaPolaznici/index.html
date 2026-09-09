@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edunova — Polaznici | Frontend developer</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="page-container">
+        <header class="page-header">
+            <div class="badge">Edunova — škola informatike</div>
+            <h1>Polaznici smjera <span class="highlight">Frontend developer</span></h1>
+            <p class="subtitle">Pregled polaznika generacije</p>
+        </header>
+
+        <main>
+            <section aria-labelledby="cardsTitle">
+                <h2 id="cardsTitle" class="section-title">Kartični pregled</h2>
+                <div id="cardsGrid" class="cards-grid"></div>
+            </section>
+        </main>
+
+        <footer class="page-footer">
+            <p>© Edunova 2026</p>
+        </footer>
+    </div>
+
+    <!-- Lightbox galerija (skrivena dok se ne klikne na karticu) -->
+    <div id="lightbox" class="lightbox" hidden>
+        <button id="lbClose" class="lb-btn lb-close" aria-label="Zatvori">✕</button>
+        <button id="lbPrev" class="lb-btn lb-arrow lb-prev" aria-label="Prethodna slika">‹</button>
+        <figure class="lb-figure">
+            <img id="lbImg" src="" alt="">
+            <figcaption id="lbCaption" class="lb-caption"></figcaption>
+        </figure>
+        <button id="lbNext" class="lb-btn lb-arrow lb-next" aria-label="Sljedeća slika">›</button>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

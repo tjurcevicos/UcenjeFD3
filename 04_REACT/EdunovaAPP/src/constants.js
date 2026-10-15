@@ -11,6 +11,10 @@ export const RouteNames = {
     POLAZNICI: '/polaznici',
     POLAZNICI_NOVI: '/polaznici/novi',
     POLAZNICI_PROMJENA: '/polaznici/:sifra',
+
+    GRUPE: '/grupe',
+    GRUPE_NOVI: '/grupe/novi',
+    GRUPE_PROMJENA: '/grupe/:sifra',
 }
 
 // memorija, localStorage, firebase

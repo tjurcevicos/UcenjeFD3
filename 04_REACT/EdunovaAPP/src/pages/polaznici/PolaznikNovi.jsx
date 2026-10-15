@@ -1,0 +1,73 @@
+import { Button, Col, Form, Row } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+import { RouteNames } from "../../constants";
+import PolaznikService from "../../services/polaznici/PolaznikService";
+
+
+export default function PolaznikNovi() {
+
+    const navigate = useNavigate()
+
+    async function dodaj(polaznik) {
+        await PolaznikService.dodaj(polaznik).then(() => {
+            navigate(RouteNames.POLAZNICI)
+        })
+    }
+
+    function odradiSubmit(e) { // e je event
+        e.preventDefault()
+        const podaci = new FormData(e.target)
+        dodaj({
+            oib: podaci.get('oib'),
+            ime: podaci.get('ime'),
+            prezime: podaci.get('prezime'),
+            email: podaci.get('email')
+        })
+    }
+
+    return (
+        <>
+            <h3>
+                Unos novog polaznika
+            </h3>
+
+            <Form onSubmit={odradiSubmit}>
+                <Form.Group controlId="oib">
+                    <Form.Label>OIB</Form.Label>
+                    <Form.Control type="text" name="oib" required />
+                </Form.Group>
+
+                <Form.Group controlId="ime">
+                    <Form.Label>Ime</Form.Label>
+                    <Form.Control type="text" name="ime" required />
+                </Form.Group>
+
+                <Form.Group controlId="prezime">
+                    <Form.Label>Prezime</Form.Label>
+                    <Form.Control type="text" name="prezime" required />
+                </Form.Group>
+
+                <Form.Group controlId="email">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control type="text" name="email" />
+                </Form.Group>
+
+
+
+
+                <Row className="mt-4">
+                    <Col>
+                        <Link to={RouteNames.POLAZNICI} className="btn btn-danger">
+                            Odustani
+                        </Link>
+                    </Col>
+                    <Col>
+                        <Button type="submit" variant="success">
+                            Dodaj novog polaznika
+                        </Button>
+                    </Col>
+                </Row>
+            </Form>
+        </>
+    )
+}

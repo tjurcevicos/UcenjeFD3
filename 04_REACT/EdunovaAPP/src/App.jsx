@@ -15,6 +15,7 @@ import PolaznikPromjena from './pages/polaznici/PolaznikPromjena'
 import GrupaPregled from './pages/grupe/GrupaPregled'
 import GrupaNovi from './pages/grupe/GrupaNovi'
 import GrupaPromjena from './pages/grupe/GrupaPromjena'
+import GeneriranjePodataka from './pages/GeneriranjePodataka'
 
 
 
@@ -39,6 +40,8 @@ function App() {
           <Route path={RouteNames.GRUPE} element={<GrupaPregled />} />
           <Route path={RouteNames.GRUPE_NOVI} element={<GrupaNovi />} />
           <Route path={RouteNames.GRUPE_PROMJENA} element={<GrupaPromjena />} />
+
+          <Route path={RouteNames.GENERIRANJE_PODATAKA} element={<GeneriranjePodataka />} />
 
         </Routes>
       </Container>

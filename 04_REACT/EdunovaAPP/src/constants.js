@@ -15,6 +15,8 @@ export const RouteNames = {
     GRUPE: '/grupe',
     GRUPE_NOVI: '/grupe/novi',
     GRUPE_PROMJENA: '/grupe/:sifra',
+
+    GENERIRANJE_PODATAKA: '/generiraj-podatke'
 }
 
 // memorija, localStorage, firebase

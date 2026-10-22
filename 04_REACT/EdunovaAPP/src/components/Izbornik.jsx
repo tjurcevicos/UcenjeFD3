@@ -45,6 +45,10 @@ export default function Izbornik() {
                             <NavDropdown.Item
                                 onClick={() => navigate(RouteNames.GRUPE)}
                             >Grupe</NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item
+                                onClick={() => navigate(RouteNames.GENERIRANJE_PODATAKA)}
+                            >Generiraj podatke</NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link
                             onClick={() => { navigate(RouteNames.RASPORED) }}

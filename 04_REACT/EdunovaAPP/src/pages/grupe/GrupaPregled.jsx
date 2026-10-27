@@ -62,7 +62,7 @@ export default function GrupaPregled() {
                 <tbody>
                     {grupe && grupe.map((grupa) => (
                         <tr key={grupa.sifra}>
-                            <td>{grupa.naziv}</td>
+                            <td>{grupa.naziv} <span title="Broj polaznika">({grupa.polaznici.length})</span></td>
                             <td>{dohvatiNazivSmjera(grupa.smjer)}</td> 
                             <td>
                                 <Button onClick={()=>{navigate(`/grupe/${grupa.sifra}`)}}>

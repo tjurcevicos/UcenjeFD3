@@ -115,7 +115,7 @@ export default function SmjerNovi() {
                             </Col>
                             <Col xs={5}  md={6} style={{paddingTop: '2.8rem'}}>
                                 <div >
-                                    <label title="" for="aktivan" style={{marginRight: '0.5rem'}}>Aktivan</label>
+                                    <label title="" htmlFor="aktivan" style={{marginRight: '0.5rem'}}>Aktivan</label>
                                     <input id="aktivan" className="form-check-input" type="checkbox" name="aktivan" />
                                   
                                </div>

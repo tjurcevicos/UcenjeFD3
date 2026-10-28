@@ -70,15 +70,31 @@ export default function GeneriranjePodataka() {
         if (smjerovi.length === 0) {
             throw new Error('Nema dostupnih smjerova. Prvo generirajte smjerove.');
         }
+
+
+         const rezultatPolaznici = await PolaznikService.get();
+        const polaznici = rezultatPolaznici.data;
+
+        
+        if (polaznici.length === 0) {
+            throw new Error('Nema dostupnih polaznika. Prvo generirajte polaznike.');
+        }
         
         for (let i = 0; i < broj; i++) {
             // Odaberi nasumični smjer
             const randomSmjer = smjerovi[faker.number.int({ min: 0, max: smjerovi.length - 1 })];
+
+            const brojPolaznikaPoGrupi = faker.number.int({min: 2, max: 5})
+
+            const randomPolaznici = faker.helpers.arrayElements(
+                polaznici.map(p=>p.sifra),
+                brojPolaznikaPoGrupi
+            )
   
             const grupa = {
                 naziv: randomSmjer.naziv.trim().split(/\s+/).slice(0, 2).map(rijec => rijec[0]).join('').toUpperCase()+i,   
                 smjer: randomSmjer.sifra,
-                polaznici:[]
+                polaznici: randomPolaznici
             };
             
             await GrupaService.dodaj(grupa);

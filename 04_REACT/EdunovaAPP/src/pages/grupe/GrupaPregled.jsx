@@ -41,7 +41,7 @@ export default function GrupaPregled() {
 
     function dohvatiNazivSmjera(sifraSmjera){
         const smjer = smjerovi.find(s => s.sifra === sifraSmjera)
-        return smjer.naziv
+        return smjer?.naziv
     }
 
 

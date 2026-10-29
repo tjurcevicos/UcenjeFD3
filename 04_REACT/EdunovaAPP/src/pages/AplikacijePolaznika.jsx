@@ -111,7 +111,7 @@ export default function AplikacijePolaznika() {
             "git": "https://github.com/tonikljenak91-glitch",
             "url": "https://edunova20.origo.hr",
             "aplikacija": "Hempvend manager",
-            "opis": "NAKNADNO"
+            "opis": "Šaljem vam opis aplikacije Aparat. Aplikacija omogućuje evidenciju samoposlužnih aparata prema ID-u, nazivu i lokaciji aparata, te praćenje proizvoda, vrste proizvoda, proizvođača i cijene."
         },
         {
             "ime": "Vedran",
@@ -156,14 +156,15 @@ export default function AplikacijePolaznika() {
     ]
 
 
+
     const polazniciFD4 = [
         {
             "ime": "Marta",
             "prezime": "Ðukić",
-            "git": "https://github.com/mDukic658",
+            "git": "https://github.com/mDukic658/PlanerPutovanja",
             "url": "https://edunova31.origo.hr",
             "aplikacija": "Planer putovanja",
-            "opis": "NAKNADNO"
+            "opis": "Planer Putovanja web je aplikacija za personalizirano planiranje putovanja, prilagodbu vlastitim potrebama, praćenje posjećenih država i izradu popisa za pakiranje."
         },
         {
             "ime": "Anamaria",
@@ -171,7 +172,7 @@ export default function AplikacijePolaznika() {
             "git": "https://github.com/moritzanamaria",
             "url": "https://edunova33.origo.hr",
             "aplikacija": "PawAlert",
-            "opis": "NAKNADNO"
+            "opis": "PawAlert je React aplikacija za prijavu nestalih i uočenih životinja. Interaktivna karta i pregled prijava olakšavaju dijeljenje informacija, praćenje slučajeva i pomoć životinjama u Osijeku."
         },
         {
             "ime": "Anita",
@@ -187,7 +188,7 @@ export default function AplikacijePolaznika() {
             "git": "https://github.com/inforemont",
             "url": "https://edunova35.origo.hr",
             "aplikacija": "Fishijada",
-            "opis": "NAKNADNO"
+            "opis": "Saznajte sve o fišijadama u Baranji, regionalnim natjecanjima i ponosu regije - najvećoj fišijadi u Belom Manastiru. Aplikacija je nastala iz neizmjerne ljubavi prema fišu i našoj Baranji."
         },
         {
             "ime": "Đurđica",
@@ -203,7 +204,7 @@ export default function AplikacijePolaznika() {
             "git": "https://github.com/GeorgeDemianGreen",
             "url": "https://edunova42.origo.hr",
             "aplikacija": "Mačke",
-            "opis": "NAKNADNO"
+            "opis": "Ova web aplikacija namijenjena je ljubiteljima mačaka koji žele predstaviti svoje ljubimce i sudjelovati u zabavnom natjecanju za najpopularniju mačku. Aplikacija omogućuje jednostavan unos mačaka, pregled svih prijavljenih mačaka te glasanje za one koje se korisnicima najviše sviđaju."
         },
         {
             "ime": "Svebor",
@@ -235,7 +236,7 @@ export default function AplikacijePolaznika() {
             "git": "https://github.com/bsdmarko-a11y",
             "url": "https://edunova43.origo.hr",
             "aplikacija": "TCCCTrainer",
-            "opis": "NAKNADNO"
+            "opis": "TCCC Trainer je mobilna aplikacija za učenje taktičkog zbrinjavanja ranjenika: MARCH vodič, kvizovi, scenariji iz prakse, mjerač vremena postavljanje Podveske, kartica ranjenika i praćenje napretka."
         },
         {
             "ime": "Mario",

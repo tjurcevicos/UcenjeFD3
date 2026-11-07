@@ -1,0 +1,126 @@
+# Analiza aplikacije „Edunova APP"
+
+Detaljno sam pregledao cijelu kodbazu (React 19 + Vite 8 + react-bootstrap, 3 entiteta: smjerovi / polaznici / grupe, localStorage kao baza, jspdf, faker). Build prolazi (`npm run build` ✔, 1,95 s), ali postoji **1 kritični bug, više slabi dijelova integriteta podataka, lomljena tooling infrastrukturna i značajna prevelika bundle**. Evidentirao sam i da `node_modules/eslint` ne postoji iako postoji `eslint.config.js` — `npm run lint` je mrtav.
+
+
+
+## 🔴 2. Integritet podataka (referenciranje)
+
+- **Brisanje polaznika ostavlja „siročke" šifre u grupama** — `PolaznikPregled.jsx` (lin. 30–42) briše polaznika bez provjere nalazi li se u nekoj grupi (`grupa.polaznici: [sifre]`). Rezultat: pogrešan broj polaznika u grupi, pogrešan PDF, tooltip prikazuje manje polaznika nego što piše u brojaču. Napomena: kod smjerova ta provjera **jeste** napravljena (`SmjerPregled.jsx` lin. 33–40) — asimetrija u logici.
+- **Brisanje grupe ne čisti ništa** — OK jer grupe drže šifre, ali obrnuto: nema nikakve kaskadne logike niti upozorenja.
+- **`promijeni`/`obrisi` bez provjere postojanja** (svi `*ServiceLocalStorage.js` i `*ServiceMemorija.js`):
+  - `obrisi` u Memorija verzijama koristi `splice(index, 1)` — ako `index === -1` (nevažeća sifra, npr. URL `/polaznici/999`), **briše se ZADNJI element niza** — to je tihi gubitak podataka.
+  - `promijeni` s `index === -1` → `polaznici[-1] = {...}` ubacuje nelegalno svojstvo `-1` u array, koje se zatim **perzistentno sprema u localStorage** (kvarenje podataka).
+- **Sifra se generira različito po backendima**: Memorija → `zadnji + 1`, LocalStorage → `max + 1`. Ako niz nije sortiran, Memorija verzija može dodijeliti **dubloniranu sifru** (duplikat React `key` + pogrešan `find()`).
+- **Nema jedinstvenosti OIB-a** — mogu postojati dva polaznika s istim OIB-om; `PolaznikNovi` ne provjerava ni duljinu (11 znamenki), ni format email-a (polje je `type="text"`).
+- **Tipovi podataka nisu konzistentni**: `GeneriranjePodataka` sprema `cijena` kao **string** (`.toFixed(2)`), a `SmjerNovi` kao `number`. U `SmjerPregledTablica` sortiranje po cijeni miješa numeričku i leksičku usporedbu → pogrešan redoslijed (npr. „500" nakon „1500").
+
+---
+
+## 🔴 3. Robusnost / obrada grešaka
+
+- **Nema `try/catch` oko service poziva** ni na jednoj CRUD stranici (osim Home i GeneriranjePodataka). Ako je u localStorageu oštećen JSON, `JSON.parse` baca iznimku → cijela aplikacija padne na bijelu ekran bez poruke.
+- **Nema ErrorBoundary** — bilo koja render greška ubija cijeli app (npr. `SmjerPromjena`: ako `getBySifra` vrati `undefined` za nepostojeću sifru, `s.datumPokretanja.substring(0, 10)` → TypeError → bijeli ekran).
+- **Nema 404 ruta** — `App.jsx` nema `<Route path="*" ...>`.
+- **`PrazanServis.getBySifra` vraća `{ data: {} }`** — stranice zatim rade `.substring` na `undefined` → nesmislena greška umjesto jasne poruke „servis nije implementiran".
+- **Race-condition pri duplom submitu**: gumbi „Dodaj" nisu `disabled` dok se `await` izvršava — dva paralelna `dodaj()` čitaju isti `maxSifra` → **dublonirana sifra**.
+- **PDF generator** (`GrupaPDFGenerator.jsx`): fontovi se **svaki klik fetchaju** (bez caching-a), nema loading stanja, ako font nedostaje `Promise` odbije i korisnik **nema nikakvu povratnu informaciju** (tihi pad); `URL.createObjectURL` nikad se ne revoka; `window.open` može biti blokiran popup-blockerom.
+
+---
+
+## 🟠 4. Arhitektura i dupliranje koda
+
+- **GrupaNovi i GrupaPromjena su ~90% identični** (autocomplete, keyboard navigacija, tablica odabranih) — ~500 linija dupliranja. Isto SmjerNovi/SmjerPromjena.
+- **Tri service fajla po entitetu** (facade + memorija + localStorage) — logika je gotovo ista, a `dohvatiStranicu` postoji samo za polaznike.
+- **Nema centraliziranog stanja/cachinga** — svaka stranica na mount re-fetcha sve: `GrupaPregled` paralelno učitava i smjerove i polaznike i grupe; `Home` ih sekvencijski; nakon promjene na jednoj stranici ostale stranice ne znaju za izmjenu dok se ne reloadaju.
+- **Nema code-splittinga** — `App.jsx` statički importira sve 14 stranica. Build izvještaj to izravno upozorava:
+  ```
+  dist/assets/index-BjAdI7jI.js  1,606 kB  │ gzip: 521 kB
+  (!) Some chunks are larger than 500 kB ... Consider using dynamic import()
+  ```
+  jspdf + html2canvas (~200 kB) učitava se iako većina korisnika nikad ne generira PDF.
+- **`Izbornik.jsx`**: `Navbar.Brand href="#home"` — klik na brand **ne navigira na početnu** (samo mijenja hash); `Nav.Link` + `onClick → navigate()` umjesto `NavLink` → nema aktivanog stanja, linkovi nemaju `href` (nije moguće otvoriti u novoj kartici / srednjim klikom).
+- **`Raspored.jsx` je potpuno statičan i vezan uz 2026.**: `isToday` eksplicitno provjerava `currentYear === 2026` (lin. 39), svi podaci su za 2026., posebni slučajevi (26.11. obrana, 21.11. 09:00–11:00) hardkodirani u JSX-u. Nakon 2026. cijela stranica je mrtva; `emptyStart` se ručno računa (jedna netočna vrijednost pomakne vikende).
+- **`AplikacijePolaznika.jsx`**: sve aplikacije polaznika učitavaju se **odjednom** u `<object>` (iframe) elementima — deseci vanjskih sajtova se istovremeno učitaju kada se otvori tab; `key={index}`; „NAKNADNO" placeholderi.
+- **`Home.jsx` statistika**: animacija brojača ide korak-po-korak (100–300 ms po jedinici) — s 200 polaznika to traja **~20 sekundi**; LordIcon veličine nisu konzistentne (smjer bez size, polaznik 80 px).
+- **`SmjerPregledTablica`**: `sortedSmjerovi()` se poziva **dva puta po renderu** (lin. 99–100) — podvojak sortiranje; bolje izračunati jednom preko `useMemo`.
+
+---
+
+## 🟠 5. UX / pristupačnost
+
+- **`alert()` / `confirm()`** svugdje — blokiraju, nemaju stil, nema inline validacije oblika.
+- **Validacija je asimetrična**: `SmjerNovi` ima potpunu validaciju (naziv, trajanje, cijena, datum u budućnosti), a **`SmjerPromjena` nema nikakvu** — korisnik može spremiti prazan naziv, negativnu cijenu ili datum u prošlosti. Isto za polaznike (nula validacije).
+- **Nema loading stanja** na stranicama s podacima — kratko „prazno" stanje bez spinera; nema error stanja.
+- **Tooltip u `GrupaPregled`** je samo-miš (bez tastaturnog pristupa), re-renders na **svaki `mousemove`** (setTooltip bez debounce-a), `position: absolute` + `pageX/pageY` lako pukne ako neki predak ima `position: relative`.
+- **`{grupa.polaznici.length}`** (GrupaPregled lin. 145) — ako legacy zapis nema `polaznici` polje, TypeError → bijeli ekran.
+- **Prstene samo-ikonične gumbi** (FaEdit/FaTrash/FaFilePdf) s `title` umjesto `aria-label`; `GrValidate` status prikazan **samo bojom** (crvena/zelena) — bez tekstualne alternative (sljepoća za boje).
+- **`bi bi-envelope`** ikona u `PolaznikPregled` (lin. 76) — bootstrap-icons CSS se **ne importira** → ikona se ne renderira.
+- **`polaznik.slika`**: `PolaznikNovi` i `GeneriranjePodataka` ne postavljaju `slika` → `Card.Img src={undefined}` → lomljena slika + React warning. Samo seed podaci (memorija) imaju base64 slike.
+- **`index.html`**: `lang="en"` — aplikacija je na hrvatskom (trebalo bi `lang="hr"`); nema `meta description`.
+
+---
+
+## 🟠 6. Build / tooling / dokumentacija
+
+| Problem | Dokaz |
+|---|---|
+| **`npm run lint` ne radi** — eslint nije ni u `dependencies` ni u `devDependencies`, a `eslint.config.js` importira `@eslint/js`, `globals`, `eslint-plugin-react-hooks`, `eslint-plugin-react-refresh` (nijedan nije instaliran). | `Test-Path node_modules/eslint` → `False`; `package-lock.json` nema nijedan od tih paketa. |
+| **`oxlint` je u devDependencies, ali ga nijedan script ne koristi.** | `package.json` scripts: `dev, build, lint, preview` |
+| **Nema testova** — nijedan test framework, nijedan test fajl. | struktura `src/` |
+| **README je Vite template** — nema opisa aplikacije, setup uputa, screenshotova. | `README.md` |
+| **`PotrebneZavisnosti.txt`** navodi pakete koji nisu instalirani (`aos`, `photoswipe`, `slick`, `react-modal-video`…) — dezinformirajuće. | usporedba s `package.json` |
+| Bundle **1,6 MB** (521 kB gzip) — Vite sam upozorava na code-splitting. | izlaz `npm run build` |
+| `DATA_SOURCE` hardkodirano u `constants.js` s komentarom `// memorija, localStorage, firebase` — firebase opcija ne postoji; switch je **triput dupliran** u tri facade servicea. | `constants.js`, tri `*Service.js` |
+
+---
+
+## ✅ Što je napravljeno dobro
+
+- Čista MV-ish struktura (pages / components / services / hooks / constants) — vrlo pregledna.
+- Strategy pattern za backend (memorija vs localStorage) — laka zamjena.
+- `RouteNames` centralizacija ruta; `RouteNames.*_PROMJENA` koriste `:sifra` dinamičku parametru — dosljedno.
+- `SmjerPregledTablica` ima korektno sortiranje s `localeCompare('hr')` i obradom tipova (osim miješanih cijena).
+- `PolaznikPregled` ima solidno stranicanje s elipsama.
+- `FormatDatuma` je robustan (provjera `NaN`, fallback).
+- `useBreakpoint` hook je korektan (cleanup listenera, optimizacija re-rendera).
+- `GrupaPDFGenerator` — uredan PDF s fontovima, paginacijom, footerom.
+- `Izbornik` prikazuje aktivni izvor podataka ikonom — zgodno.
+
+---
+
+## 🎯 Predloženi redoslijed popravaka (plan)
+
+**Faza 1 — Bugovi (hitno)**
+1. `GrupaPromjena`: ukloniti/uskrediti `useEffect` reset odabiranih polaznika (initijalno postavljanje jednom nakon učitavanja, ne na svaku promjenu `grupa`).
+2. `PolaznikPregled.brisanje`: provjera da polaznik nije u grupama (kao kod smjerova) + opcija kaskade.
+3. Servicei: `obrisi`/`promijeni` — provjera `index === -1` (baca jasnu grešku); eliminirati `splice(-1)`; ujednačiti generiranje sifre (`max + 1` u oba backend-a).
+4. `SmjerPromjena` / `PolaznikNovi` / `PolaznikPromjena` / `GrupaNovi` / `GrupaPromjena`: dopuniti validaciju (naziv, cijena ≥ 0, datum u budućnosti, OIB 11 znamenki + jedinstvenost, email format).
+5. Dodati ErrorBoundary + 404 rutu (`*`).
+
+**Faza 2 — Robusnost**
+6. `try/catch` + loading/error stanja na svim stranicama.
+7. `disabled` stanje submit gumba tijekom async operacije (race-condition).
+8. PDF: cache fontova, loading stanje, `revokeObjectURL`, obrada greške.
+9. Fallback slika za polaznike bez `slika`.
+
+**Faza 3 — Arhitektura / performanse**
+10. `React.lazy` + `Suspense` za stranice (naročito jspdf chunk).
+11. Izdvojiti zajedničke komponente: `PolaznikAutocomplete`, `ValidacijaOblika`, zajednički hook `useKrud` — umanjiti ~1000 linija dupliranja.
+12. Fix `npm run lint` (dodati eslint + plugin-e u devDeps ili uvesti `oxlint` u script).
+13. Uvesti `vitest` + bare minimum testova na service sloju (CRUD + sifra).
+14. `Raspored` — iznijeti podatke u JSON config + generirati mjesece programski (bez hardkodirane 2026. godiene).
+15. `Home` animacija — inkrementirati u koracima (npr. 5–10 po tick), ne po 1.
+
+**Faza 4 — UX / pristupačnost**
+16. `Izbornik`: `NavLink` s active state, brand → navigacija na home.
+17. Tooltip: `react-bootstrap` `Overlay`/`Tooltip` umjesto ručnog `position: absolute`.
+18. `aria-label` na ikon-gumbima, tekstualna alternativa statusu (Aktivan/Neaktivan).
+19. `index.html` → `lang="hr"`, `meta description`.
+20. Ukloniti `bi bi-envelope` ili importirati `bootstrap-icons`.
+21. `AplikacijePolaznika` — `IntersectionObserver` / `React.lazy` za iframe učitavanje.
+22. README: opis, screenshotovi, upute za pokretanje.
+
+---
+
+Ako želiš, mogu odmah krenuti s **Fazom 1** (5 bugova) — reći mi samo koji od njih su prioritet za tebe, ili ako želiš da sve uradim redom.

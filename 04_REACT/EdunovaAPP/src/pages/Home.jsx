@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import SmjerService from "../services/smjerovi/SmjerService";
 import PolaznikService from "../services/polaznici/PolaznikService";
 import GrupaService from "../services/grupe/GrupaService";
+import { LordIcon  } from '@lordicon/react';
 
 export default function Home() {
     const [brojSmjerova, setBrojSmjerova] = useState(0);
@@ -82,7 +83,8 @@ export default function Home() {
                         <Card.Body className="text-center">
                             <p className="text-white">Smjerovi</p>
                             <div className="statistikaTekst">
-                                {animatedSmjerovi}
+                                <LordIcon src="/lordicon/smjer.json" trigger="hover" /> {animatedSmjerovi}
+                                   &nbsp;<LordIcon src="/lordicon/smjer.json" trigger="hover" />
                             </div>
                         </Card.Body>
                     </Card>
@@ -91,7 +93,9 @@ export default function Home() {
                         <Card.Body className="text-center">
                             <p className="text-white">Polaznici</p>
                             <div className="statistikaTekst">
-                                {animatedPolaznici}
+                                <LordIcon style={{ width: 80, height: 80 }} src="/lordicon/polaznik.json" trigger="hover" />
+                                    {animatedPolaznici}
+                                    &nbsp;<LordIcon  style={{ width: 80, height: 80 }}  src="/lordicon/polaznik.json" trigger="hover" />
                             </div>
                         </Card.Body>
                     </Card>
@@ -100,7 +104,9 @@ export default function Home() {
                         <Card.Body className="text-center">
                             <p className="text-white">Grupe</p>
                             <div className="statistikaTekst">
+                                 <LordIcon style={{ width: 60, height: 60 }} src="/lordicon/grupa.json" trigger="hover" />
                                 {animatedGrupe}
+                                &nbsp;<LordIcon style={{ width: 60, height: 60 }} src="/lordicon/grupa.json" trigger="hover" />
                             </div>
                         </Card.Body>
                     </Card>

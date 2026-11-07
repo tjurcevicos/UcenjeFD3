@@ -47,7 +47,7 @@ export default function AplikacijePolaznika() {
             "git": "https://github.com/hogar88888",
             "url": "https://edunova7.origo.hr",
             "aplikacija": "DieHausers site",
-            "opis": "NAKNADNO"
+            "opis": "Aplikacija za praćenje (prema riječima glazbenih kritičara) dugo skrivane, dobro čuvane tajne slavonske noise rock scene. DIE HAUSERS, Osijek, Hrvatska, EU, stari kontinent, sjeverna polutka…samo je nebo granica."
         },
         {
             "ime": "Sean",
@@ -71,7 +71,7 @@ export default function AplikacijePolaznika() {
             "git": "https://github.com/jurajprsa-ai",
             "url": "https://edunova10.origo.hr",
             "aplikacija": "Namještaj po mjeri",
-            "opis": "NAKNADNO"
+            "opis": "App je osmišljen za odabir kuhinja po nazivu, obliku, cijeni, datumu ugradnje i dali kuhinja ima šank ili nema. Na svakoj kuhinji zasebno, može se promjeniti sve stavke u području \"Akcija - Promjeni\" isto tako svaka kuhinja u ponudi se može kompletno obrisati."
         },
         {
             "ime": "Luna",
@@ -87,7 +87,7 @@ export default function AplikacijePolaznika() {
             "git": "https://github.com/lindatukera-1991",
             "url": "https://edunova11.origo.hr",
             "aplikacija": "Nannyfinder",
-            "opis": "NAKNADNO"
+            "opis": "Nannyfinder roditeljima olakšava pronalazak dadilja u njihovom gradu. Pregledajte profile, iskustvo, dostupnost i lokaciju te jednostavno kontaktirajte dadilju koja odgovara vašim potrebama."
         },
         {
             "ime": "Gorana",
@@ -111,14 +111,14 @@ export default function AplikacijePolaznika() {
             "git": "https://github.com/tonikljenak91-glitch",
             "url": "https://edunova20.origo.hr",
             "aplikacija": "Hempvend manager",
-            "opis": "Šaljem vam opis aplikacije Aparat. Aplikacija omogućuje evidenciju samoposlužnih aparata prema ID-u, nazivu i lokaciji aparata, te praćenje proizvoda, vrste proizvoda, proizvođača i cijene."
+            "opis": "Aplikacija omogućuje evidenciju samoposlužnih aparata prema ID-u, nazivu i lokaciji aparata, te praćenje proizvoda, vrste proizvoda, proizvođača i cijene."
         },
         {
             "ime": "Vedran",
             "prezime": "Kralj",
             "git": "https://github.com/VedroRey",
             "url": "https://edunova12.origo.hr",
-            "aplikacija": "NIJE DEFINIRANO",
+            "aplikacija": "Osijek Drone Expo",
             "opis": "NAKNADNO"
         },
         {
@@ -126,15 +126,15 @@ export default function AplikacijePolaznika() {
             "prezime": "Bosak",
             "git": "https://github.com/Lucijabosak",
             "url": "https://edunova13.origo.hr",
-            "aplikacija": "NIJE DEFINIRANO",
-            "opis": "NAKNADNO"
+            "aplikacija": "Mala blagajna",
+            "opis": "Aplikacija omogućuje dodavanje, pregled, uređivanje i brisanje artikala i prodaja. Prilikom evidentiranja prodaje automatski se ažuriraju zalihe, a aplikacija upozorava na artikle s malim zalihama i približavanje isteka roka trajanja."
         },
         {
             "ime": "Everyn",
             "prezime": "Zagorec Mrđa",
             "git": "https://github.com/EverynZ",
             "url": "https://edunova15.origo.hr",
-            "aplikacija": "NIJE DEFINIRANO",
+            "aplikacija": "Event-Management.app",
             "opis": "NAKNADNO"
         },
         {
@@ -142,16 +142,16 @@ export default function AplikacijePolaznika() {
             "prezime": "Županić",
             "git": "https://github.com/davor-zupanic",
             "url": "https://edunova57.origo.hr",
-            "aplikacija": "NIJE DEFINIRANO",
-            "opis": "NAKNADNO"
+            "aplikacija": "Live produkcija",
+            "opis": "Aplikacija za planiranje live prijenosa sportskih događaja i praćenje opreme. Prikazuje spremnost produkcije: je li za događaj dodijeljeno dovoljno kamera i dron, uz upozorenja o neispravnoj opremi."
         },
         {
             "ime": "Ian",
             "prezime": "Farkaš",
             "git": "https://github.com/annoookkkk",
             "url": "https://edunova18.origo.hr",
-            "aplikacija": "NIJE DEFINIRANO",
-            "opis": "NAKNADNO"
+            "aplikacija": "Ian Farkaš APP",
+            "opis": "Osobna portfolio web aplikacije u Reactu za prikaz radova, nagrada i biografije, s filtreiranjem po kategoriji, administracijom (CRUD) projekata i nagrada uz provjeru unosa te pohranom u localStorage."
         }
     ]
 
@@ -180,7 +180,7 @@ export default function AplikacijePolaznika() {
             "git": "https://github.com/Anita2403",
             "url": "https://edunova38.origo.hr",
             "aplikacija": "Galerija slika",
-            "opis": "NAKNADNO"
+            "opis": "Galerija slika je aplikacija koja vam omogućuje pogled u moj vizualni svijet. Ja sam umjetnik-amater koji kroz boje, teksture i emocije prenosi priče na platno, ali i druge medije. Svako djelo nosi jedinstvenu energiju i dio moje duše. Istražite galeriju i pronađite djelo koje rezonira s vama i vašim prostorom."
         },
         {
             "ime": "Dragan",
@@ -196,7 +196,7 @@ export default function AplikacijePolaznika() {
             "git": "https://github.com/durdicahabjanovic1",
             "url": "https://edunova39.origo.hr",
             "aplikacija": "Nogomet",
-            "opis": "NAKNADNO"
+            "opis": "Nogometna aplikacija nudi vođenje nogometne lige, evidenciju klubova i bazu igrača uz filtriranje i brzu pretragu. Sučelje je responzivno, a podaci su osigurani kroz lokalnu pohranu. Aplikacija je izrađena u Reactu. "
         },
         {
             "ime": "Juraj",
@@ -212,15 +212,15 @@ export default function AplikacijePolaznika() {
             "git": "https://github.com/Svebor48",
             "url": "https://edunova32.origo.hr",
             "aplikacija": "Servis bicikala",
-            "opis": "NAKNADNO"
+            "opis": "Servis Bicikala je web aplikacija za evidenciju klijenata i radnih naloga u biciklističkom servisu. Omogućuje unos i uređivanje podataka, praćenje popravaka, cijena te statusa izvršenih servisa."
         },
         {
             "ime": "Borna",
             "prezime": "Vrandečić",
             "git": "https://github.com/bornavrandecic",
             "url": "https://edunova48.origo.hr",
-            "aplikacija": "Rise and baked",
-            "opis": "NAKNADNO"
+            "aplikacija": "Legos Apartmani",
+            "opis": "Legos Apartmani je React aplikacija za iznajmljivače apartmana i goste. Jednostavno upravljanje rezervacijama, pregled ponude i brza komunikacija omogućuju vođenje smještaja i pronalazak idealnog apartmana."
         },
         {
             "ime": "Tomislav",
@@ -251,15 +251,15 @@ export default function AplikacijePolaznika() {
             "prezime": "Mlinarević",
             "git": "https://github.com/dac1715",
             "url": "https://edunova34.origo.hr",
-            "aplikacija": "NIJE DEFINIRANO",
-            "opis": "NAKNADNO"
+            "aplikacija": "Gaming centar",
+            "opis": "Web aplikacija za upravljanje Gaming Centrom koja sadrži funkcionalnosti: evidencija stanica (računala i konzola), korisnika, zauzetosti stanica te pregled dostupnih igara."
         },
         {
             "ime": "Krunoslav",
             "prezime": "Pucek",
             "git": "https://github.com/bosutsko",
             "url": "https://edunova37.origo.hr",
-            "aplikacija": "NIJE DEFINIRANO",
+            "aplikacija": "Nekretnine Online",
             "opis": "NAKNADNO"
         },
         {
@@ -267,7 +267,7 @@ export default function AplikacijePolaznika() {
             "prezime": "Papa",
             "git": "https://github.com/dpapa",
             "url": "https://edunova36.origo.hr",
-            "aplikacija": "NIJE DEFINIRANO",
+            "aplikacija": "NoWire Osijek",
             "opis": "NAKNADNO"
         },
         {
@@ -275,7 +275,7 @@ export default function AplikacijePolaznika() {
             "prezime": "Župan",
             "git": "https://github.com/kriszup",
             "url": "https://edunova41.origo.hr",
-            "aplikacija": "NIJE DEFINIRANO",
+            "aplikacija": "Rukomet: ekipe i turniri",
             "opis": "NAKNADNO"
         },
         {
@@ -283,7 +283,7 @@ export default function AplikacijePolaznika() {
             "prezime": "Šnalcer",
             "git": "https://github.com/mateasnalcer",
             "url": "https://edunova45.origo.hr",
-            "aplikacija": "NIJE DEFINIRANO",
+            "aplikacija": "Smjene i zadaci",
             "opis": "NAKNADNO"
         },
         {
@@ -291,7 +291,7 @@ export default function AplikacijePolaznika() {
             "prezime": "Perić",
             "git": "https://github.com/nperic22",
             "url": "https://edunova46.origo.hr",
-            "aplikacija": "NIJE DEFINIRANO",
+            "aplikacija": "Rezervacije apartmana",
             "opis": "NAKNADNO"
         },
         {
@@ -299,15 +299,15 @@ export default function AplikacijePolaznika() {
             "prezime": "Mance",
             "git": "https://github.com/matkomance",
             "url": "https://edunova47.origo.hr",
-            "aplikacija": "NIJE DEFINIRANO",
-            "opis": "NAKNADNO"
+            "aplikacija": "Naplata parkiranja Osijek",
+            "opis": "Naplata parkiranja Osijek je web aplikacija za evidenciju naplate parkiranja. Namijenjena je djelatniku koji evidentira naplate, vodi popis vozila i parkirnih zona te provodi provjeru istog."
         },
         {
             "ime": "Borna",
             "prezime": "Wertag",
             "git": "https://github.com/Borna35",
             "url": "https://edunova49.origo.hr",
-            "aplikacija": "NIJE DEFINIRANO",
+            "aplikacija": "Rukometni klub Osijek",
             "opis": "NAKNADNO"
         },
         {
@@ -315,7 +315,7 @@ export default function AplikacijePolaznika() {
             "prezime": "Bednjički",
             "git": "https://github.com/CallMeDisco",
             "url": "https://edunova50.origo.hr",
-            "aplikacija": "NIJE DEFINIRANO",
+            "aplikacija": "Praćenje projekata i zadataka",
             "opis": "NAKNADNO"
         },
         {
@@ -323,7 +323,7 @@ export default function AplikacijePolaznika() {
             "prezime": "Gaža",
             "git": "NIJE_DEFINIRANO",
             "url": "https://edunova51.origo.hr",
-            "aplikacija": "NIJE DEFINIRANO",
+            "aplikacija": "Nalog-Materijal Gredelj",
             "opis": "NAKNADNO"
         }
     ]

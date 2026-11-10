@@ -22,6 +22,10 @@ npm install jspdf jspdf-autotable
 npm install @lordicon/react
 
 
+// za rad s slikama
+npm install react-cropper
+
+
 // Zanimljivije zavisnosti
 "@popperjs/core": "^2.11.6",
 "aos": "^2.3.4",

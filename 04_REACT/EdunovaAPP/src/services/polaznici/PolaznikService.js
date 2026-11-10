@@ -22,7 +22,8 @@ const PrazanServis = {
     getBySifra: async (sifra) => ({ data: {} }),
     promijeni: async (sifra, smjer) => { console.error('Servis nije implementiran') },
     obrisi: async (sifra) => { console.error('Servis nije implementiran') },
-    dohvatiStranicu: async (stranica, velicinaStranice) => ({ data: [], ukupnoStranica: 0, ukupnoStavki: 0 })
+    dohvatiStranicu: async (stranica, velicinaStranice, uvjetPretrazivanja) => ({ data: [], ukupnoStranica: 0, ukupnoStavki: 0 }),
+    spremiSliku: async(entitet) => ({})
 }
 
 const AktivniServis = Servis || PrazanServis
@@ -34,5 +35,6 @@ export default {
     getBySifra: (sifra) => AktivniServis.getBySifra(sifra),
     promijeni: (sifra, smjer) => AktivniServis.promijeni(sifra,smjer),
     obrisi: (sifra) => AktivniServis.obrisi(sifra),
-    dohvatiStranicu: (stranica, velicinaStranice) => AktivniServis.dohvatiStranicu(stranica, velicinaStranice)
+    dohvatiStranicu: (stranica, velicinaStranice, uvjetPretrazivanja) => AktivniServis.dohvatiStranicu(stranica, velicinaStranice,uvjetPretrazivanja),
+    spremiSliku: (entitet) => AktivniServis.spremiSliku(entitet)
 }
